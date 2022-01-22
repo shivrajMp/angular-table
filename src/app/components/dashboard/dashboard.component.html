@@ -1,0 +1,58 @@
+<div class="table-wrapper" *ngIf="filterList">
+  <div class="d-flex justify-content-between">
+    <div>
+      <app-custom-icons iconName='shivSearchIcon' class="icon-style"></app-custom-icons>
+      <input type="text" id="fname" name="fname" [(ngModel)]="searchedText" placeholder="Search"
+        (input)="filterUser()" />
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-secondary btn-sm dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Filter
+      </button>
+      <label id="position-style">Position:</label>
+      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        All
+      </button>
+      <div class="dropdown-menu"><label>A</label></div>
+    </div>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">MAIL</th>
+        <th scope="col">COUNTRY</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filterList;let i= index;">
+        <td class="pl-3">
+          <img src="{{ user.picture.thumbnail }}" class="user-img mr-3" alt=".." />{{ user.name.first }} {{
+          user.name.last }}
+        </td>
+        <td class="pl-3 light-font">{{ user.email }}</td>
+        <td class="pl-3 light-font">{{ user.location.country }}</td>
+        <td class="pl-3 light-font d-flex">
+          <button class="btn mx-2">
+            <app-custom-icons iconName='shivAssignmentIcon' [ngClass]="{ 'danger-color': i%7 ==0, 'warn-color': i%2 == 0, 'okay-color': i%3 ==0 }"></app-custom-icons>
+          </button>
+          <button class="btn mx-2">
+            <app-custom-icons iconName='shivEditIcon'></app-custom-icons>
+          </button>
+          <button class="btn  mx-2">
+            <app-custom-icons iconName='shivCloseIcon' class="icon-style"></app-custom-icons>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- No search found /No data -->
+  <div *ngIf="filterList && filterList.length === 0" class="container not-found-wrapper">
+    <img src="../../../assets/user-not-found.png" width="500" alt=".." class="not-found-img" />
+    <label class="light-font">No data found!!!</label>
+  </div>
+</div>

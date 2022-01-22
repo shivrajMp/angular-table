@@ -1,0 +1,109 @@
+$light-grey-color: #797979;
+$lightest-grey-color: #c9c4c4;
+
+.table-wrapper {
+  padding: 12px;
+  .user-img {
+    width: 30px;
+    border-radius: 100%;
+  }
+  .table {
+    background-color: #faffff;
+    thead th {
+      background-color: #feffff;
+      border-bottom: none !important;
+      border-top: none;
+      font-size: 13px;
+      color: $lightest-grey-color;
+      font-weight: 500;
+    }
+    .th,
+    .td {
+      font-size: 12px;
+    }
+  }
+  .light-font {
+    color: $light-grey-color;
+  }
+  .icon-style {
+    font-size: small;
+    padding: 5px;
+    font-weight: bold;
+    color: grey;
+  }
+
+  #position-style {
+    color: $lightest-grey-color !important;
+    margin-right: 15px;
+  }
+}
+
+::ng-deep.table-wrapper {
+  label {
+    margin-bottom: 0;
+  }
+  .btn-secondary,
+  .btn-secondary:not(:disabled):not(.disabled):active,
+  .show > .btn-secondary.dropdown-toggle {
+    background-color: transparent;
+    border-color: transparent;
+    color: $light-grey-color;
+  }
+  .btn-secondary:focus {
+    box-shadow: none !important;
+  }
+  input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    background: transparent;
+  }
+  input:focus-visible {
+    box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);
+  }
+  .not-found-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 900;
+    .not-found-img {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+    }
+  }
+  .table-hover tbody tr:hover {
+    background: white;
+  }
+
+  svg {
+    fill: $light-grey-color;
+    width: 22px;
+  }
+  
+  .danger-color {
+    svg {
+      fill: rgb(255, 94, 0) !important;
+    }
+  }
+  .warn-color {
+    svg {
+      fill: rgb(223, 208, 6) !important;
+    }
+  } 
+  
+  .okay-color {
+    svg {
+      fill: rgb(59, 204, 71) !important;
+    }
+  }
+
+
+  .btn {
+    padding: 0;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
